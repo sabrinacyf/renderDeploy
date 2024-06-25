@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Add ejs partial header -->
+    <%- include('../partials/head.ejs')%>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <nav><%- include('../partials/nav.ejs')%></nav>
+    <div class="container">
+      <h2>Check Out All The Glorious Wares</h2>
+      <div class="products">
+        <% products.forEach( function (product) { %>
+        <div class="card">
+          <h5><%= product.name %></h5>
+          <a href="/products/<%=product.id%>">
+            <img src="<%= product.img %>" alt="An image of <%= product.name %>"
+          /></a>
+          <h6>Price: $<%=product.price %></h6>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+  <%- include('../partials/footer.ejs')%>
+</html>
